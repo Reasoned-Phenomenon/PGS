@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function solution(d, budget) {
+            let cnt = 0;
+            d.sort();
+
+            for ( let i = 0 ; i < d.length ; i ++ ) {
+                budget -= d[i];
+                cnt++;
+                if( budget <= 0 ) {
+                    break;
+                }
+            }
+            var answer;
+            if ( budget < 0) {
+                answer = cnt-1
+            } else {
+                answer = cnt;
+            }
+            return answer;
+        }
+        let dept = [2,2,3,3];
+        let bud = 10;
+        console.log( solution(dept,bud) );
+
+    </script>
+</body>
+
+</html>
