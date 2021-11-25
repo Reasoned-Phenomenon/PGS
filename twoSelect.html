@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(numbers) {
+            
+            let calcNum = [];
+            let nl = numbers.length;
+            for ( let i = 0 ; i < nl ; i ++ ) {
+                for ( let j=1 ; j < nl-i; j ++ ) { 
+                    let sum = 0;
+                    sum = numbers[i] + numbers[i+j]
+                    console.log(numbers[i] , numbers[j])
+                    calcNum.push(sum);
+                }
+            }
+            let setedNum = new Set(calcNum);
+            let sortedNum = [...setedNum];
+            sortedNum.sort(function(a, b)  {
+                if(a > b) return 1;
+                if(a === b) return 0;
+                if(a < b) return -1;});
+            var answer = sortedNum;
+            return answer;
+        }
+
+        let given = [5, 0, 2, 7];
+        console.log( solution(given))
+        //	[2, 5, 7, 9, 12]
+
+    </script>
+</body>
+
+</html>
