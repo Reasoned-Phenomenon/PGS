@@ -9,30 +9,37 @@
 </head>
 
 <body>
+
     <script>
         function solution(d, budget) {
             let cnt = 0;
+            //저가부터 정렬
             d.sort();
 
             for ( let i = 0 ; i < d.length ; i ++ ) {
+                
                 budget -= d[i];
-                cnt++;
-                if( budget <= 0 ) {
+
+                if( budget > 0 ) {
+                    cnt++;
+                } else if (budget == 0) {
+                    cnt++;
+                    break;
+                } else {
                     break;
                 }
+                
             }
-            var answer;
-            if ( budget < 0) {
-                answer = cnt-1
-            } else {
-                answer = cnt;
-            }
+
+            var answer = cnt;
+
             return answer;
         }
+
+        //테스트
         let dept = [2,2,3,3];
         let bud = 10;
-        console.log( solution(dept,bud) );
-
+        console.log( 'answer ' + solution(dept,bud) );
     </script>
 </body>
 
